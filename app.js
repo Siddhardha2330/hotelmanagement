@@ -34,6 +34,19 @@ app.get('/signup', (req, res) => {
 app.get('/login', (req, res) => {
   res.render('login');
 });
+app.get('/check', (req,res)=>{
+ res.render("check");
+})
+app.get('/luxuryrooms', (req,res)=>{
+  res.render("luxuryrooms");
+ })
+ app.get('/acrooms', (req,res)=>{
+  res.render("acrooms");
+ })
+ app.get('/nonacrooms', (req,res)=>{
+  res.render("nonacrooms");
+ })
+ 
 
 app.post('/signup', async (req, res) => {
   const { username, password } = req.body;
