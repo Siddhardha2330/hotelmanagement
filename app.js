@@ -247,9 +247,7 @@ app.post('/book', async (req, res) => {
 
     // Save the new booking
     await newBooking.save();
-    
-    res.render('check');
-    
+    res.send("Booking successful!");
   } catch (error) {
     console.error("Error booking room:", error);
     res.status(500).send("Error booking room. Please try again.");
