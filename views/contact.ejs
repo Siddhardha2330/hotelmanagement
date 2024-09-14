@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Fun, playful page styles */
+        body {
+            font-family: 'Comic Neue', cursive;
+            margin: 0;
+            padding: 0;
+            background-color: #fffae3; /* Light yellowish background */
+            color: #333;
+        }
+
+        .contact-container {
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: #fff8dc; /* Light peachy color */
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+            border: 2px solid #ffcc66; /* Bright yellow border */
+        }
+
+        .contact-container h1 {
+            font-size: 2rem;
+            color: #ff5733; /* Bright orange */
+            text-align: center;
+            margin-bottom: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .contact-container p {
+            font-size: 1rem;
+            color: #555;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .contact-container form {
+            display: grid;
+            gap: 16px;
+        }
+
+        .contact-container label {
+            font-size: 1rem;
+            color: #444;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .contact-container input,
+        .contact-container textarea {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #fdd835; /* Bright yellow border */
+            border-radius: 8px;
+            font-size: 1rem;
+            color: #333;
+            background-color: #fffacd; /* Soft cream color */
+        }
+
+        .contact-container input:focus,
+        .contact-container textarea:focus {
+            border-color: #ff8c00; /* Deep orange focus effect */
+            background-color: #fff;
+            box-shadow: 0 0 6px rgba(255, 165, 0, 0.6); /* Slight orange glow */
+        }
+
+        .radio-group {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .radio-group div {
+            flex: 1;
+        }
+
+        .radio-group label {
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+
+        .radio-group input {
+            margin-right: 5px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: #ff8c00; /* Bright orange */
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 700;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        .submit-btn:hover {
+            background-color: #ff5733; /* Bright red on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="contact-container">
+        <h1>Contact Us</h1>
+        <p>We would love to hear from you!</p>
+        <form action="/submit-form" method="POST">
+            <div>
+                <label for="first-name">Full Name</label>
+                <input type="text" id="first-name" name="firstName" placeholder="First Name" required>
+            </div>
+            <div>
+                <input type="text" id="last-name" name="lastName" placeholder="Last Name" required>
+            </div>
+            <div>
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="example@example.com" required>
+            </div>
+            <div>
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" placeholder="(000) 000-0000" required>
+            </div>
+            <div>
+                <label for="subject">Subject of Inquiry</label>
+                <input type="text" id="subject" name="subject" placeholder="Subject" required>
+            </div>
+            <div>
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="5" placeholder="Your message here..." required></textarea>
+            </div>
+            <div class="radio-group">
+                <div>
+                    <label>Contact Method</label><br>
+                    <label><input type="radio" name="contactMethod" value="Email"> Email</label>
+                    <label><input type="radio" name="contactMethod" value="Phone"> Phone</label>
+                    <label><input type="radio" name="contactMethod" value="Text"> Text</label>
+                </div>
+                <div>
+                    <label>Urgency</label><br>
+                    <label><input type="radio" name="urgency" value="Urgent"> Urgent</label>
+                    <label><input type="radio" name="urgency" value="Normal"> Normal</label>
+                    <label><input type="radio" name="urgency" value="Not Urgent"> Not Urgent</label>
+                </div>
+            </div>
+            <button type="submit" class="submit-btn">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

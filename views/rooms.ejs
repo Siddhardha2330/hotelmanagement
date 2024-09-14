@@ -1,0 +1,55 @@
+<!-- rooms.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rooms</title>
+    <style>
+        .room {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin: 10px;
+            text-align: center;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .room.available {
+            background-color: #d4edda; /* Green for available */
+        }
+        .room.unavailable {
+            background-color: #f8d7da; /* Red for unavailable */
+        }
+        .room a {
+            text-decoration: none;
+            color: #333;
+        }
+        .room.unavailable a {
+            pointer-events: none;
+            cursor: not-allowed;
+            color: #999; /* Gray out unavailable room links */
+        }
+    </style>
+</head>
+<body>
+ 
+    <h1>Available Rooms</h1>
+    <div class="rooms">
+        <% roomStatuses.forEach(({ room, isAvailable }) => { %>
+            <div class="room <%= isAvailable ? 'available' : 'unavailable' %>">
+                <a href="<%= isAvailable ? '/room/' + room.roomno : '#' %>">
+                    <img src="<%= room.img1 %>" alt="Room Image" width="200">
+                    <h2>Room Number: <%= room.roomno %></h2>
+                    <p>Type: <%= room.type %></p>
+                    <p>Price: $<%= room.price %> per night</p>
+                </a>
+            </div>
+        <% }) %>
+        <button onclick="window.location.href='/dashboard';" 
+        style="display: inline-block; padding: 12px 24px; background-color: #ff8c00; color: white; font-size: 1rem; font-weight: 700; border: none; border-radius: 8px; cursor: pointer; transition: background-color 0.3s ease; text-transform: uppercase; margin-top: 20px;">
+    Back to Dashboard
+</button>
+
+    </div>
+</body>
+</html>

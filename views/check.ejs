@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Check Availability</title>
     <style>
+
         body {
+            
             font-family: Arial, sans-serif;
             display: flex;
             justify-content: center;
@@ -45,22 +48,27 @@
     </style>
 </head>
 <body>
+  
     <div class="container">
+       
         <div class="box">
             <img src="imagee1.jpg" alt="Luxury Rooms">
-            <form action="/luxuryrooms" method="GET">
+            <form action="/rooms" method="GET">
+                <input type="hidden" name="type" value="luxurious">
                 <button type="submit">Check Availability</button>
             </form>
         </div>
         <div class="box">
             <img src="imagee2.jpg" alt="AC Rooms">
-            <form action="/acrooms" method="GET">
+            <form action="/rooms" method="GET">
+                <input type="hidden" name="type" value="ac">
                 <button type="submit">Check Availability</button>
             </form>
         </div>
         <div class="box">
             <img src="imagee3.jpg" alt="Non-AC Rooms">
-            <form action="/nonacrooms" method="GET">
+            <form action="/rooms" method="GET">
+                <input type="hidden" name="type" value="non-ac">
                 <button type="submit">Check Availability</button>
             </form>
         </div>

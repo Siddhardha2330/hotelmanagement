@@ -1,0 +1,145 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services</title>
+    <link rel="stylesheet" href="/styles/services.css">
+    <style>
+        /* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f4f4f4;
+}
+
+
+
+/* Service Section */
+.services-intro {
+    background-color: white;
+    padding: 50px 0;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+}
+
+.services {
+    padding: 60px 20px;
+    text-align: center;
+    background-color: #f8f9fa; /* Light gray background for contrast */
+    margin-top: 20px;
+    border-top: 5px solid #ff6600;
+}
+
+.services h2 {
+    margin-bottom: 40px;
+    font-weight: 600;
+    color: #333;
+    font-size: 2rem; /* Larger font size for better hierarchy */
+}
+
+.service-box {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.service {
+    background-color: white;
+    padding: 20px;
+    border-radius: 12px; /* More rounded corners */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Softer and larger shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 260px; /* Slightly wider to accommodate images */
+    max-width: 100%;
+}
+
+.service:hover {
+    transform: translateY(-5px); /* Slightly reduced hover lift */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15); /* Enhanced hover shadow effect */
+}
+
+.service img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px; /* Rounded corners for images */
+    margin-bottom: 15px; /* Added space between image and title */
+}
+
+.service h3 {
+    margin-top: 10px;
+    font-weight: 500;
+    color: #444; /* Slightly darker color for better contrast */
+    font-size: 1.1rem; /* Improved readability */
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+    </style>
+</head>
+<body>
+ 
+
+  <%- include('header') %>
+
+    
+    <!-- Services Section -->
+    <section class="services">
+      
+        <h2>Our Services</h2>
+        <div class="service-box">
+            <div class="service">
+                <img src="https://www.vassallogroupmalta.com/wp-content/uploads/2017/10/Blog-4-Duties-To-be-Expected-from-Room-Service-PART-1-002-1200x750.jpg" alt="Room Service">
+                <h3>Room Service</h3>
+            </div>
+            <div class="service">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFClZVRbyLQe6D9jtw6cFd-xfJCZyzLy41OA&s" alt="Spa & Wellness">
+                <h3>Spa & Wellness</h3>
+            </div>
+            <div class="service">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSPVoStJu5THyyASLgTn1g52ksbMfOVuoHVg&s" alt="Free Wifi">
+                <h3>Free Wifi</h3>
+            </div>
+            <div class="service">
+                <img src="https://d1y6v4ds4mu1po.cloudfront.net/sites/default/files/2021-12/1920x800.png" alt="Hot Water">
+                <h3>Hot Water</h3>
+            </div>
+            <div class="service">
+                <img src="https://cdn3.vectorstock.com/i/1000x1000/53/07/24-hours-icon-clock-open-time-service-or-delivery-vector-34525307.jpg" alt="24 Hours Service">
+                <h3>24 Hours Service</h3>
+            </div>
+            <div class="service">
+                <img src="https://cdn.prod.website-files.com/621f6615a4c8a1d5166a4362/62615ca29b7d0a31079ac32e_smart%20parking.jpeg" alt="Parking Facility">
+                <h3>Parking Facility</h3>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <p>&copy; 2024 Your Company</p>
+    </footer>
+</body>
+</html>

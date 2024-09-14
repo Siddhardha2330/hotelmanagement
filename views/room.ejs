@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Room Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            width: 100%;
+        }
+        .room-details {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .room-details img {
+            width: 100%;
+            max-width: 600px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .room-details h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .room-details p {
+            font-size: 16px;
+            color: #555;
+            margin: 5px 0;
+        }
+        h3 {
+            font-size: 20px;
+            margin-top: 30px;
+        }
+        .reviews {
+            margin-top: 20px;
+            border-top: 1px solid #ddd;
+            padding-top: 20px;
+        }
+        .review {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+        .review strong {
+            display: block;
+            font-size: 14px;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        .review p {
+            margin: 0;
+            color: #555;
+        }
+        form {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        form input, form textarea {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            width: 100%;
+        }
+        form button {
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        form button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Room Details</h1>
+        <div class="room-details">
+            
+            <h2>Room Number: <%= room.roomno %></h2>
+            <p>Type: <%= room.type %></p>
+            <p>Facing: <%= room.facing %></p>
+            <p>Size: <%= room.size %> sqft</p>
+            <p>Bed Capacity: <%= room.bedcapacity %></p>
+            <p>Price: $<%= room.price %> per night</p>
+        </div>
+
+        <h3>Reviews:</h3>
+        <div class="reviews">
+            <% if (reviews.length > 0) { %>
+                <% reviews.forEach(review => { %>
+                    <div class="review">
+                        <strong>By: <%= review.username %></strong>
+                        <strong>Rating: <%= review.rating %> / 5</strong>
+                        <p><%= review.comment %></p>
+                    </div>
+                <% }) %>
+            <% } else { %>
+                <p>No reviews yet.</p>
+            <% } %>
+        </div>
+
+        <!-- Show the comment form if eligible -->
+        <% if (eligibleToComment) { %>
+            <h3>Add a Review:</h3>
+            <form action="/room/<%= room.roomno %>/comment" method="POST">
+                <input type="hidden" name="userid" value="<%= userId %>">
+                <label for="rating">Rating (1-5):</label>
+                <input type="number" id="rating" name="rating" min="1" max="5" required>
+                
+                <label for="comment">Comment:</label>
+                <textarea id="comment" name="comment" rows="4" required></textarea>
+                
+                <button type="submit">Submit Review</button>
+            </form>
+        <% } else { %>
+            <p>You must have completed a stay in this room to leave a review.</p>
+        <% } %>
+
+        <!-- Booking Form -->
+        <h3>Book this Room</h3>
+        <form action="/book" method="POST">
+            <input type="hidden" name="userid" value="<%= userId %>">
+            <input type="hidden" name="roomid" value="<%= room.roomno %>">
+            <label for="checkin">Check-in Date:</label>
+            <input type="date" id="checkin" name="checkin" required>
+            <label for="checkout">Check-out Date:</label>
+            <input type="date" id="checkout" name="checkout" required>
+            <button type="submit">Book</button>
+        </form>
+        <button onclick="window.location.href='/dashboard';" 
+        style="display: inline-block; padding: 12px 24px; background-color: #ff8c00; color: white; font-size: 1rem; font-weight: 700; border: none; border-radius: 8px; cursor: pointer; transition: background-color 0.3s ease; text-transform: uppercase; margin-top: 20px;">
+    Back to Dashboard
+</button>
+
+    </div>
+</body>
+</html>

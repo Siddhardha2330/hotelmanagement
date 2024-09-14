@@ -2,8 +2,9 @@ const mongoose = require('mongoose');
 
 // Define Review schema
 const reviewSchema = new mongoose.Schema({
-  id: { type: Number, default: null },
-  rating: { type: Number, default: null }
+  id: { type: mongoose.Schema.Types.ObjectId, required: true }, // Should be ObjectId
+  rating: { type: Number, default: null },
+  comment: { type: String, default: null }
 });
 
 // Define Room schema
@@ -15,10 +16,11 @@ const roomSchema = new mongoose.Schema({
   size: { type: Number, required: true },
   bedcapacity: { type: Number, required: true },
   price: { type: Number, required: true },
-  reviews: [reviewSchema]
+  reviews: [reviewSchema],
+  roomno:{type:Number,required:true}
 });
 
 // Create Room model
-const Room = mongoose.model('Room', roomSchema);
+const Room = mongoose.model('Rooms', roomSchema);
 
 module.exports = Room;
